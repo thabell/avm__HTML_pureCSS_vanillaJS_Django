@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}avm{% endblock %}</title>
+    <link href="{% static 'normalize.css' %}" rel="stylesheet">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon" width="16" height="16">
+</head>
+
+<body>
+    <div class="header-n-h1-wrap {% block page_back_class %}{% endblock %}">
+        <header class="main-header">
+            <nav class="main-header-logo-n-nav">
+                {% block index_logo %}<a class="main-header-logo" href="{% url 'index' %}" title="Главная">avm</a>{% endblock %}
+                <ul class="site-navigation">
+                    <li>
+                        <h3><a {% block systems_href %}href="{% url 'systems' %}"{% endblock %}>Перевод в СиС</a></h3>
+                    </li>
+                    <li>
+                        <h3><a {% block logic_href %}href="{% url 'logic' %}"{% endblock %}>Арифметика логики</a></h3>
+                    </li>
+                    <li>
+                        <h3><a {% block about_href %}href="{% url 'about' %}"{% endblock %}>О нас</a></h3>
+                    </li>
+                    <li>
+                        <h3><a {% block user_href %}href="{% url 'user' %}"{% endblock %}>Профиль</a></h3>
+                    </li>
+                    <li>
+                        <h3><a {% block map_href %}href="{% url 'map' %}"{% endblock %}>Карта сайта</a></h3>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        {% block h1 %}
+        <h1><span class="h1-bright">AVM</span> avm</h1>
+        <p class="h1-annotation">*enjoy</p>
+        {% endblock %}
+
+    </div>
+
+    {% block main %}
+    {% endblock %}
+
+    <footer class="main-footer">
+        <div class="main-footer-content">
+            <span class="footer-logo">avm</span>
+            <p class="copyrights">
+                All Rights Reserved |  2019  |  Designed and developed with love by <a href="https://vk.com/thabell">Dmitry</a>
+                Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="{% static 'script.js' %}"></script>
+    {% block scripts %}
+    {% endblock %}
+</body>

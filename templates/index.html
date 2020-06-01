@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}automatic value modifier - автоматический преобразователь данных{% endblock %}
+
+{% block page_back_class %}{% endblock %}
+
+{% block index_logo %}<span class="main-header-logo" title="Логотип приложения «Automatic value modifier»">avm
+</span>{% endblock %}
+
+{% block h1 %}
+<h1><span class="h1-bright">Automatic</span> value modifier</h1>
+<p class="h1-annotation">*Автоматический преобразователь данных работает с вашими данными, выдавая наилучший результат</p>
+{% endblock %}
+
+{% block main %}
+    <main>
+
+        <section class="servises">
+            <h2><span class="h2-bright">Наши</span> сервисы</h2>
+            <ul class="servises-list">
+                <li class="servises-item servises-systems">
+                    <a href="{% url 'systems' %}"><h3>Перевод между различными системами счисления</h3></a>
+                </li>
+                <li class="servises-item servises-logic">
+                    <a href="{% url 'logic' %}"><h3>Решение задач по алгебре логики</h3></a>
+                </li>
+            </ul>
+        </section>
+
+        <div class="about-back">
+            <section class="about">
+                <h2 class="visually-hidden">О нас</h2>
+                <p class="light-text">Приложение создано для работы с системами счиления и бинарной алгеброй в учебных, проффесиональных и научных целях</p>
+                <a href="{% url 'about' %}" class="button">О нас</a>
+            </section>
+        </div>
+
+        <div class="comments-back">
+            <section class="comments">
+                <h2>Отзывы</h2>
+                <ul class="comments-list">
+                    <li class="comments-item neighbour">
+                        <h3>Мой сосед</h3>
+                        <p>Бесплатно - вот что мне нравится в Automatic value modifier</p>
+                        <a href="{% url 'systems' %}" class="button">Считать бесплатно</a>
+                    </li>
+                    <li class="comments-item cat">
+                        <h3>Моя кошка</h3>
+                        <p>Занимательно - хозяин работает с Automatic value modifier и не мешает</p>
+                        <a href="{% url 'logic' %}" class="button">Считать занимательно</a>
+                    </li>
+                    <li class="comments-item group-mate">
+                        <h3>Одногруппник</h3>
+                        <p>А к какому нам это надо сделать?</p>
+                        <a href="{% url 'systems' %}" class="button">Считать прямо сейчас</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <section class="gallery">
+            <h2>Галерея</h2>
+            <div class="slider">
+                <figure class="gallery-item slider__item slider__item--active">
+                    <img src="{% static 'img/example1.jpg' %}" alt="Пример перевода между системами">
+                    <h3>Пример перевода между системами</h3>
+                </figure>
+                <figure class="gallery-item slider__item">
+                    <img src="{% static 'img/example2.jpg' %}" alt="Пример вычислений алгебры логики">
+                    <h3>Пример вычислений алгебры логики</h3>
+                </figure>
+                <button class="button button-previous" type="button"><span class="visually-hidden">Предыдущий</span></button>
+                <button class="button button-next" type="button"><span class="visually-hidden">Следующий</span></button>
+                <div class="pagination gallery-pagination">
+                    <button class="pagination__item pagination__item--active" type="button"><span class="visually-hidden">1</span></button>
+                    <button class="pagination__item" type="button"><span class="visually-hidden">2</span></button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

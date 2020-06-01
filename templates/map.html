@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}avm - Карта сайта{% endblock %}
+
+{% block page_back_class %}map{% endblock %}
+
+{% block map_href %}{% endblock %}
+
+{% block h1 %}
+<h1><span class="h1-bright">Карта</span> сайта</h1>
+<p class="h1-annotation">*Просто и понятно - вот что нужно от карты сайта. Ничего лишнего</p>
+{% endblock %}
+
+{% block main %}
+    <main>
+        <section class="map-items-list">
+            <h2 class="visually-hidden">Список пунктов</h2>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <ul>
+                    <li><a href="{% url 'systems' %}">Перевод между системами счисления</a></li>
+                    <li><a href="{% url 'logic' %}">Арифметика логики</a></li>
+                    <li><a href="{% url 'about' %}">О нас</a></li>
+                    <li><a href="{% url 'user' %}">Профиль</a></li>
+                    <li><a>Карта сайта</a></li>
+                </ul>
+            </ul>
+        </section>
+    </main>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}avm - Перевод между системами{% endblock %}
+
+{% block page_back_class %}systems{% endblock %}
+
+{% block systems_href %}{% endblock %}
+
+{% block h1 %}
+<h1><span class="h1-bright">Перевод</span> между системами</h1>
+<p class="h1-annotation">*Перевод из одной системы счисления в другую, одного числа или чисел промежутка с заданным шагом</p>
+{% endblock %}
+
+{% block main %}
+    <main>
+
+        <section class="input systems-input">
+            <h2><span class="h2-bright">Ввод</span> данных</h2>
+            <div class="input-list slider">
+                <div class="pagination input-pagination">
+                    <button type="button" class="one pagination__item">Перевод одного числа</button>
+                    <button type="button" class="multi pagination__item pagination__item--active">Перевод промежутка с заданным шагом</button>
+                </div>
+                <button class="button button-previous" type="button"><span class="visually-hidden">Предыдущий</span></button>
+                <button class="button button-next" type="button"><span class="visually-hidden">Следующий</span></button>
+                <form class="input-item input-one slider__item">
+                    <h3 class="light-text">Введите данные</h3>
+                    <input type="text" name="system_from" placeholder="Из какой системы счисления (S) (до 35)" title="Из какой системы">
+                    <input type="text" name="system_to" placeholder="В какую систему счисления (P)" title="В какую систему">
+                    <input type="text" name="system_more_to" placeholder="Еще в какую систему счисления (Q)" title="Еще в какую систему">
+                    <input type="text" name="start" placeholder="Число для перевода (в Sной)" title="Число">
+                </form>
+                <form class="input-item input-multi slider__item slider__item--active">
+                    <h3 class="light-text">Введите данные</h3>
+                    <input type="text" name="system_from" placeholder="Из какой системы счисления (S) (до 35)" title="Из какой системы">
+                    <input type="text" name="system_to" placeholder="В какую систему счисления (P)" title="В какую систему">
+                    <input type="text" name="system_more_to" placeholder="Еще в какую систему счисления (Q)" title="Еще в какую систему">
+                    <input type="text" name="start" placeholder="Начало промежутка (A)" title="Начало">
+                    <input type="text" name="finish" placeholder="Конец промежутка (B)" title="Конец">
+                    <input type="text" name="step" placeholder="Шаг промежутка для перевода (C) (в Sной)" title="Шаг">
+                </form>
+            </div>
+        </section>
+
+        <div class="submit-back">
+            <section class="submit systems-submit">
+                <h2 class="visually-hidden">Подтверждение перевода</h2>
+                <button type="button" class="button submit-button">Перевести</button>
+            </section>
+        </div>
+
+        <div class="result-back">
+            <section class="result">
+<!--                 <h2><span class="h2-bright">Результат</span> перевода</h2>
+                <div class="result-line result-header">
+                    <div class="result-item">asdfs</div>
+                    <div class="result-item">asdfs</div>
+                    <div class="result-item">asdfs</div>
+                </div>
+                <div class="result-line">
+                    <div class="result-item">33</div>
+                    <div class="result-item">4</div>
+                    <div class="result-item">2</div>
+                </div>
+                <div class="result-line">
+                    <div class="result-item">3</div>
+                    <div class="result-item">5</div>
+                    <div class="result-item">37</div>
+                </div> -->
+            </section>
+        </div>
+
+        <section class="history systems-history">
+            <h2>История переводов</h2>
+            <div class="slider">
+                <figure class="history-item slider__item slider__item--active">
+                    <img src="{% static 'img/example1.jpg' %}" alt="Пример перевода между системами">
+                    <h3>Пример перевода между системами</h3>
+                </figure>
+                <figure class="history-item slider__item history-refreshing-item">
+                    <div class="history-item-back">
+                        <div class="for-overflow-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ferfref</th>
+                                        <th>ferfref</th>
+                                        <th>ferfref</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>66</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>77</td>
+                                        <td>6</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>E</td>
+                                        <td>6</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </figure>
+                <button class="button button-previous" type="button"><span class="visually-hidden">Предыдущий</span></button>
+                <button class="button button-next" type="button"><span class="visually-hidden">Следующий</span></button>
+                <div class="pagination history-pagination">
+                    <button class="pagination__item pagination__item--active" type="button"><span class="visually-hidden">1</span></button>
+                    <button class="pagination__item history-refreshing-pagination-item" type="button"><span class="visually-hidden">2</span></button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'sys_transfer_script.js' %}"></script>
+{% endblock %}

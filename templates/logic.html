@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}avm - Арифметика логики{% endblock %}
+
+{% block page_back_class %}logic{% endblock %}
+
+{% block logic_href %}{% endblock %}
+
+{% block h1 %}
+<h1><span class="h1-bright">Арифметика</span> логики</h1>
+<p class="h1-annotation">*Бинарная алгебра, вычисление по Вашим формулам с несколькими переменными и операторами</p>
+{% endblock %}
+
+{% block main %}
+    <main>
+
+        <section class="input logic-input">
+            <h2><span class="h2-bright">Ввод</span> данных</h2>
+            <div class="input-list">
+                <form class="input-item">
+                    <h3 class="light-text">Введите данные</h3>
+                    <p class="light-text">
+                        *В формуле могут быть использованы: любые буквы, кроме “<b>f</b>”,<br>в качестве переменных, знаки:<br>“<b>-</b>” (инверсия),<br>“<b>|</b>” (штрих Шеффера), “<b>↓</b>” (стрелка Пирса),<br>“<b>&</b>” (Коньюнкция), “<b>+</b>” (Дизъюнкция),<br>“<b>⊕</b>” (Сложение по модулю два),<br>“<b>→</b>” (Импликация), “<b>↔</b>”  (Эквивалентность)
+                    </p>
+                    <p>
+                        МЫ ПОКА ЧТО НЕ УМЕЕМ РАCСТАВЛЯТЬ ПРИОРИТЕТЫ ОПЕРАЦИЙ! ПОЖАЛУЙСТА, ПОСТАВЬТЕ ВСЕ НЕОБХОДИМЫЕ СКОБКИ САМОСТОЯТЕЛЬНО<br>
+                        (B & ((C | D) ↓ ( A ⊕ (-D)))) → D
+                    </p>
+                    <div class="operands">
+                        <button type="button" class="button-45">-</button>
+                        <button type="button" class="button-124">|</button>
+                        <button type="button" class="button-8595">↓</button>
+                        <button type="button" class="button-38">&</button>
+                        <button type="button" class="button-43">+</button>
+                        <button type="button" class="button-8853">⊕</button>
+                        <button type="button" class="button-8594">→</button>
+                        <button type="button" class="button-8596">↔</button>
+                        <button type="button" class="button-40">(</button>
+                        <button type="button" class="button-41">)</button>
+                    </div>
+                    <input class="logic-formula" type="text" name="logic-formula" placeholder="Формула (F)" title="Формула">
+                </form>
+            </div>
+        </section>
+
+        <div class="submit-back">
+            <section class="submit logic-submit">
+                <h2 class="visually-hidden">Подтверждение вычисления</h2>
+                <button type="button" class="button submit-button">Вычислить</button>
+            </section>
+        </div>
+
+        <div class="result-back">
+            <section class="result slider"> <!-- style="position: relative;" -->
+                <!-- <span style="position: absolute; background-color: #000000; width: 30px; height: 260px; top: 0;"></span> -->
+                <h2><span class="h2-bright">Результат</span> вычисления</h2>
+                <div class="pagination result-pagination">
+                    <button type="button" class="table pagination__item pagination__item--active">Вывод: таблица истинности</button>
+                    <button type="button" class="scheme pagination__item">Вывод: динамическая схема</button>
+                </div>
+                <button class="button button-previous" type="button"><span class="visually-hidden">Предыдущий</span></button>
+                <button class="button button-next" type="button"><span class="visually-hidden">Следующий</span></button>
+                <div class="result-table slider__item slider__item--active result-refreshing-item">     
+                    <div class="result-line result-header">
+                        <div class="result-item">A</div>
+                        <div class="result-item">B</div>
+                        <div class="result-item">C</div>
+                        <div class="result-item">D</div>
+                        <div class="result-item">F</div>
+                    </div>
+                    <div class="result-line">
+                        <div class="result-item">0</div>
+                        <div class="result-item">0</div>
+                        <div class="result-item">0</div>
+                        <div class="result-item">0</div>
+                        <div class="result-item">1</div>
+                    </div>
+                    <div class="result-line">
+                        <div class="result-item">0</div>
+                        <div class="result-item">0</div>
+                        <div class="result-item">0</div>
+                        <div class="result-item">1</div>
+                        <div class="result-item">0</div>
+                    </div>
+                    <div class="result-line">
+                        <div class="result-item">0</div>
+                        <div class="result-item">0</div>
+                        <div class="result-item">1</div>
+                        <div class="result-item">0</div>
+                        <div class="result-item">1</div>
+                    </div>
+                </div>
+                <div class="result-scheme slider__item result-refreshing-item">  <!-- result-refreshing-item -->   
+                     <img src="{% static 'img/schema-res.png' %}" alt="Результат вычислений динамическая схема">
+                </div>
+            </section>
+        </div>
+
+        <section class="history logic-history">
+            <h2>История вычислений</h2>
+            <div class="slider">
+                <figure class="history-item slider__item slider__item--active">
+                    <img src="{% static 'img/example2.jpg' %}" alt="Пример вычислений алгебры логики">
+                    <h3>Пример вычислений алгебры логики</h3>
+                </figure>
+                <figure class="history-item slider__item history-refreshing-item">
+                    <div class="history-item-back">
+                        <div class="for-overflow-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>A</th>
+                                        <th>B</th>
+                                        <th>C</th>
+                                        <th>D</th>
+                                        <th>R</th>
+                                        <th>F</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <h3>B+(D&C\/B)[+](A|B)\|/D</h3>
+                </figure>
+                <button class="button button-previous" type="button"><span class="visually-hidden">Предыдущий</span></button>
+                <button class="button button-next" type="button"><span class="visually-hidden">Следующий</span></button>
+                <div class="pagination history-pagination">
+                    <button class="pagination__item pagination__item--active" type="button"><span class="visually-hidden">1</span></button>
+                    <button class="pagination__item history-refreshing-pagination-item" type="button"><span class="visually-hidden">2</span></button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'bin_algebra_script.js' %}"></script>
+{% endblock %}

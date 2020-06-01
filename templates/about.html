@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}avm - О нас{% endblock %}
+
+{% block page_back_class %}about-wrap{% endblock %}
+
+{% block h1 %}
+<h1><span class="h1-bright">О</span> нас</h1>
+<p class="h1-annotation">*Вдохновляющая история зарождения, становления и успеха компании с именем, громогласно прозвучавшим на всю вселенную</p>
+{% endblock %}
+
+{% block main %}
+    <main>
+
+        <section class="start">
+            <h2><span class="h2-bright">Наше</span> зарождение</h2>
+            <div class="start-wrapper">
+                <img class="start-img" src="{% static 'img/garage.jpg' %}" alt="Гараж Стива Джобса" title="Гараж Стива Джобса">
+                <p>
+                    Все началось в маленьком гараже.<br>
+                    Мы с ребятами собирались там после школы и играли в Сегу.<br>
+                    А потом я поступил в ВУЗ.<br>
+                    В один ВУЗ. Во второй ВУЗ. Во второй раз во второй ВУЗ. И вот я пишу этот текст второго абзаца второго абзаца, если всзять весь этот параграф и сгрупирровать в нем абзацы по два.<br>
+                </p>
+            </div>
+        </section>
+
+        <div class="run-back">
+            <div class="run">
+                <section class="run">
+                    <h2 class="visually-hidden">На главную</h2>
+                    <a class="button" href="{% url 'index' %}" title="Главная">Бежать отсюда</a>
+                </section>
+            </div>
+        </div>
+
+        <div class="continious-back">
+            <section class="continious">
+                <h2><span class="h2-bright">Наше</span> развитие</h2>
+                <div class="continious-wrapper">
+                    <img class="continious-img" src="{% static 'img/akcii.jpg' %}" alt="Взлет акций" title="Взлет акций">
+                    <p>
+                        Вы все еще тут?<br>
+                        Ну тогда слушайте анекдот.<br>
+                        Вербовщик — менеджер по продажным.<br>
+                        Ппхпхпххвхвхввхвввввхвхвхаахааавх<br>
+                        Ладно, в общем, задали нам задание. Вот и сделал. Кто бы мог подумать, что я заработаю на этом миллиарды?<br>
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <section class="finish">
+            <h2><span class="h2-bright">Наша</span> смерть</h2>
+            <div class="finish-wrapper">
+                <img class="finish-img" src="{% static 'img/goodbye.jpg' %}" alt="Прощание" title="Прощание">
+                <p>
+                    Конечно, всегда грустно, когда заканчивается хорошая сказка.<br>
+                    Будь то хороший фильм, трек или сон.<br>
+                    Отпуская Вас из наших теплых объятий, дарим вам нашу нежность с собой и просим лишь об одном:<br>
+                    Оставайтесь таким же замечательным уникальным человеком, каким Вы действительно являетесь!<br>
+                    Увидимся в других наших проектах и в коридорах универа!<br>
+                </p>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
